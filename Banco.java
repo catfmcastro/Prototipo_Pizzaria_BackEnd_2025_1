@@ -256,6 +256,17 @@ public class Banco {
             String method = exchange.getRequestMethod();
             String response = "";
 
+            // Adicione os cabeçalhos CORS para todas as requisições
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+
+            // Responda às requisições OPTIONS para CORS
+            if ("OPTIONS".equalsIgnoreCase(method)) {
+                exchange.sendResponseHeaders(204, -1); // Sem conteúdo
+                return;
+            }
+
             try {
                 switch (method) {
                     case "GET":
@@ -266,7 +277,8 @@ public class Banco {
                     case "POST":
                         // Exemplo de dados no corpo da requisição: nome,descricao,preco
                         String[] postData = new String(exchange.getRequestBody().readAllBytes()).split(",");
-                        response = sql.postItem(postData[0], postData[1], Double.parseDouble(postData[2]), Long.parseLong(postData[3]), Long.parseLong(postData[4]));
+                        response = sql.postItem(postData[0], postData[1], Double.parseDouble(postData[2]),
+                                Long.parseLong(postData[3]), Long.parseLong(postData[4]));
                         sendResponse(exchange, response, 201);
                         break;
 

@@ -69,6 +69,17 @@ public class Banco {
             String method = exchange.getRequestMethod();
             String response = "";
 
+            // Adicione os cabeçalhos CORS para todas as requisições
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+
+            // Responda às requisições OPTIONS para CORS
+            if ("OPTIONS".equalsIgnoreCase(method)) {
+                exchange.sendResponseHeaders(204, -1); // Sem conteúdo
+                return;
+            }
+
             try {
                 switch (method) {
                     case "GET":
@@ -126,6 +137,17 @@ public class Banco {
             String method = exchange.getRequestMethod();
             String response = "";
 
+            // Adicione os cabeçalhos CORS para todas as requisições
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+
+            // Responda às requisições OPTIONS para CORS
+            if ("OPTIONS".equalsIgnoreCase(method)) {
+                exchange.sendResponseHeaders(204, -1); // Sem conteúdo
+                return;
+            }
+
             try {
                 switch (method) {
                     case "GET":
@@ -168,6 +190,17 @@ public class Banco {
         public void handle(HttpExchange exchange) throws IOException {
             String method = exchange.getRequestMethod();
             String response = "";
+
+            // Adicione os cabeçalhos CORS para todas as requisições
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+
+            // Responda às requisições OPTIONS para CORS
+            if ("OPTIONS".equalsIgnoreCase(method)) {
+                exchange.sendResponseHeaders(204, -1); // Sem conteúdo
+                return;
+            }
 
             try {
                 switch (method) {
@@ -212,6 +245,17 @@ public class Banco {
         public void handle(HttpExchange exchange) throws IOException {
             String method = exchange.getRequestMethod();
             String response = "";
+
+            // Adicione os cabeçalhos CORS para todas as requisições
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+
+            // Responda às requisições OPTIONS para CORS
+            if ("OPTIONS".equalsIgnoreCase(method)) {
+                exchange.sendResponseHeaders(204, -1); // Sem conteúdo
+                return;
+            }
 
             try {
                 switch (method) {
